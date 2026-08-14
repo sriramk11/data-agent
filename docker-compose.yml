@@ -1,0 +1,29 @@
+# Two things need building: the backend API image, and the sandbox image
+# (data-agent-sandbox:latest) that the backend launches per-session via the
+# Docker socket. Build both before starting:
+#
+#   docker build -t data-agent-sandbox:latest -f backend/sandbox.Dockerfile backend
+#   docker compose up --build
+#
+# The backend needs the host Docker socket to launch sandbox containers --
+# this makes the backend itself effectively root-equivalent on the host, so
+# only run this compose file somewhere you trust the backend code (fine for
+# local dev; for a real deployment see the SANDBOX_MODE=local note in
+# backend/app/config.py and the README's "hard parts" section on this
+# exact tradeoff).
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - AGENT_MODEL=${AGENT_MODEL:-claude-sonnet-5}
+      - SANDBOX_IMAGE=data-agent-sandbox:latest
+      - SANDBOX_MODE=docker
+      - FRONTEND_ORIGINS=http://localhost:5173
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./backend/runtime:/app/runtime

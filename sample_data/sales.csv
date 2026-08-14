@@ -1,0 +1,25 @@
+date,region,product,units_sold,revenue
+2025-01-05,West,Widget A,120,3600
+2025-01-12,East,Widget A,90,2700
+2025-01-19,South,Widget B,60,2400
+2025-01-26,North,Widget A,80,2400
+2025-02-02,West,Widget B,140,5600
+2025-02-09,East,Widget A,95,2850
+2025-02-16,South,Widget B,70,2800
+2025-02-23,North,Widget B,60,2400
+2025-03-02,West,Widget A,160,4800
+2025-03-09,East,Widget B,100,4000
+2025-03-16,South,Widget A,75,2250
+2025-03-23,North,Widget A,85,2550
+2025-04-06,West,Widget A,210,6300
+2025-04-13,East,Widget A,110,3300
+2025-04-20,South,Widget B,90,3600
+2025-04-27,North,Widget B,70,2800
+2025-05-04,West,Widget B,240,9600
+2025-05-11,East,Widget A,120,3600
+2025-05-18,South,Widget A,95,2850
+2025-05-25,North,Widget A,90,2700
+2025-06-01,West,Widget A,260,7800
+2025-06-08,East,Widget B,130,5200
+2025-06-15,South,Widget B,100,4000
+2025-06-22,North,Widget A,100,3000

@@ -1,0 +1,9 @@
+# Only needed for SANDBOX_MODE=local (dev without Docker) -- in that mode
+# the backend's own interpreter also runs runner_server.py as a subprocess,
+# so it needs the same data-analysis stack that sandbox.Dockerfile bakes
+# into the real sandbox image. SANDBOX_MODE=docker (the default) doesn't
+# need this file at all; the container has its own copy of these.
+pandas>=2.2.2
+numpy>=1.26.4
+matplotlib>=3.9.0
+duckdb>=1.0.0
